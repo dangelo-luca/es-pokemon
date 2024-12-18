@@ -5,9 +5,9 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { GenereComponent } from './genere/genere.component';
 
 const routes: Routes = [
-  {path:"pokemontypes", component: PokemontypesComponent},
-  {path:"pokemon/:id", component: PokemonComponent},
-  {path: "genere", component:GenereComponent}
+  {path:"pokemontypes/:id", component: PokemonComponent},
+  {path:"generi/:genere", component: PokemontypesComponent},
+  {path: "generi", component:GenereComponent}
   
 ];
 

@@ -9,8 +9,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./pokemontypes.component.css']
 })
 export class PokemontypesComponent implements OnInit {
-  typeId: string | undefined;
+  
+  genere: string | null = null;
   obs: Observable<any> | undefined;
+  dati: any;
 
 constructor(private route: ActivatedRoute, private http: HttpClient){}
 
@@ -19,13 +21,14 @@ ngOnInit(): void {
 }
 
 type = (params: ParamMap)=>{
-  this.typeId = params.get('id');
+  this.genere = params.get('genere');
 
-  this.obs = this.http.get(`https://pokeapi.co/api/v2/type/${this.typeId}`);
-  this.obs.subscribe(this.getData);
+  this.obs = this.http.get(`https://pokeapi.co/api/v2/type/${this.genere}`);
+  this.obs.subscribe(this.prendidati);
 }
 
-getData = (data: any)=>{console.log(data);
-  
+prendidati=(data: any)=> {
+  this.dati = data
+
 }
 }
