@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>Generi di Pokémon</h1>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let genere of mieidati.results">
+        <a [routerLink]="['/generi', genere.name]">{{ genere.name }}</a>
+      </li>
+    </ul>
+</div>

@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(private http : HttpClient)
   {
-    this.obs = this.http.get<any>("https://pokeapi.co/api/v2/type/normal");
+    this.obs = this.http.get<any>("https://pokeapi.co/api/v2");
     this.obs.subscribe(this.prendidati)
   }
   prendidati=(data: any)=> {

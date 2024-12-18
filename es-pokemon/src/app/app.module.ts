@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemontypesComponent } from './pokemontypes/pokemontypes.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
+import { GenereComponent } from './genere/genere.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemontypesComponent,
-    PokemonComponent
+    PokemonComponent,
+    GenereComponent
   ],
   imports: [
     BrowserModule,
