@@ -12,7 +12,7 @@ export class PokemonComponent {
     
     pokemon: string | null = null;
     obs: Observable<any> | undefined;
-    dati: any;
+    dati: any = {};
   
   constructor(private route: ActivatedRoute, private http: HttpClient){}
   
@@ -23,12 +23,12 @@ export class PokemonComponent {
   type = (params: ParamMap)=>{
     this.pokemon = params.get('pokemon');
   
-    this.obs = this.http.get(`https://pokeapi.co/api/v2/${this.pokemon}`);
+    this.obs = this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.pokemon}`);
     this.obs.subscribe(this.prendidati);
   }
   
   prendidati = (data: any) => {
     console.log(data); // Controlla i dati ricevuti
-    this.dati = data;
-  }
+      this.dati = data; // Dettagli di un singolo Pokémon
+  };
 }

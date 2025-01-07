@@ -1,6 +1,10 @@
-<div *ngFor="let p of dati.pokemon">
-  <li>
-    <a >{{ p.pokemon.name }}</a>
-  </li>
-  
+<div *ngIf="dati?.pokemon; else loading">
+  <div *ngFor="let p of dati.pokemon">
+    <li>
+      <a [routerLink]="['/pokemontypes', p.pokemon.name]">{{ p.pokemon.name }}</a>
+    </li>
+  </div>
 </div>
+<ng-template #loading>
+  <p>Loading Pokémon data...</p>
+</ng-template>

@@ -1,1 +1,31 @@
-
+<div *ngIf="dati.pokemon?.results; else detailView">
+    <div *ngFor="let p of dati.pokemon.results">
+      <li>
+        <a [routerLink]="['/pokemontypes', p.name]">{{ p.name }}</a>
+      </li>
+    </div>
+  </div>
+  
+  <ng-template #detailView>
+    <div *ngIf="dati.name; else loading">
+      <h1>{{ dati.name | titlecase }}</h1>
+      <img [src]="dati.sprites?.front_default" alt="{{ dati.name }} image">
+      <h3>Abilities:</h3>
+      <ul>
+        <li *ngFor="let ability of dati.abilities">
+          {{ ability.ability.name | titlecase }}
+        </li>
+      </ul>
+      <h3>Stats:</h3>
+      <ul>
+        <li *ngFor="let stat of dati.stats">
+          {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+  
+  <ng-template #loading>
+    <p>Loading Pokémon data...</p>
+  </ng-template>
+  
