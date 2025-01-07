@@ -27,8 +27,9 @@ type = (params: ParamMap)=>{
   this.obs.subscribe(this.prendidati);
 }
 
-prendidati=(data: any)=> {
-  this.dati = data
-
+prendidati = (data: any) => {
+  console.log(data); // Controlla i dati ricevuti
+  this.dati = data;
 }
+
 }
